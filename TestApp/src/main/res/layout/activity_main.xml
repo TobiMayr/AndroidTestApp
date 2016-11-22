@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <TextView
-        android:text="Test App"
+        android:text="@string/titleButtonPage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
@@ -20,7 +20,7 @@
         android:columnCount="3">
 
         <Button
-            android:text="Counter"
+            android:text="@string/counterButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/counterButton"
@@ -29,7 +29,7 @@
             android:onClick="counter"/>
 
         <TextView
-            android:text="0"
+            android:text="@string/zero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/counter"
@@ -38,7 +38,7 @@
             android:textAlignment="viewStart" />
 
         <CheckBox
-            android:text="CheckBox"
+            android:text="@string/checkBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/checkBox2"
@@ -47,7 +47,7 @@
             android:onClick="checker"/>
 
         <TextView
-            android:text="Unchecked"
+            android:text="@string/check"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/checkerText"
@@ -64,7 +64,7 @@
             android:orientation="horizontal">
             <RadioButton
                 android:layout_width="wrap_content"
-                android:text="Red"
+                android:text="@string/rbRed"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:id="@+id/redRB"
@@ -72,14 +72,14 @@
 
             <RadioButton
                 android:layout_width="wrap_content"
-                android:text="Green"
+                android:text="@string/rbGreen"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:id="@+id/greenRB" />
 
             <RadioButton
                 android:layout_width="wrap_content"
-                android:text="Blue"
+                android:text="@string/rbBlue"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:id="@+id/blueRB" />
@@ -94,7 +94,7 @@
             android:layout_column="0"/>
 
         <TextView
-            android:text="Selected item:"
+            android:text="@string/selectedItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/selectedItem"
@@ -102,7 +102,7 @@
             android:layout_column="1"/>
 
         <Button
-            android:text="Make Progress"
+            android:text="@string/makeProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/progressButton"
@@ -118,7 +118,7 @@
             android:layout_column="1"/>
 
         <Switch
-            android:text="Switch"
+            android:text="@string/switchText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/switch1"
@@ -127,7 +127,7 @@
             />
 
         <TextView
-            android:text="ON"
+            android:text="@string/switchOn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/switchText"

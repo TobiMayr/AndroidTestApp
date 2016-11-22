@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#AAAAFF</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#008bb6</color>
+    <color name="colorPrimaryDark">#000735</color>
+    <color name="colorAccent">#0029f5</color>
     <color name="seekBar"> #FFF</color>
 </resources>

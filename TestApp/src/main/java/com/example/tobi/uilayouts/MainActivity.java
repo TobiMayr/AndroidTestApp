@@ -110,10 +110,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked){
-                    textSwitch.setText("ON");
+                    textSwitch.setText(getString(R.string.switchOn));
                 }
                 else{
-                    textSwitch.setText("OFF");
+                    textSwitch.setText(getString(R.string.switchOff));
                 }
 
             }
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1,
                                        int arg2, long arg3) {
-                itemSelected.setText("Selected item: " + dropdown.getSelectedItem().toString()) ;
+                itemSelected.setText(getString(R.string.selectedItem) + dropdown.getSelectedItem().toString()) ;
             }
 
             @Override
