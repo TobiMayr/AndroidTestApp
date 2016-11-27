@@ -4,7 +4,6 @@
     <string name="counterButton">Counter</string>
     <string name="zero">0</string>
     <string name="checkBox">Check Box</string>
-    <string name="check">Unchecked</string>
     <string name="rbRed">Red</string>
     <string name="rbGreen">Green</string>
     <string name="rbBlue">Blue</string>
@@ -13,5 +12,6 @@
     <string name="switchText">Switch</string>
     <string name="switchOn">ON</string>
     <string name="switchOff">OFF</string>
-
+    <string name="checkOn">Checked</string>
+    <string name="checkOff">Unchecked</string>
 </resources>

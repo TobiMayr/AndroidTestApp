@@ -5,15 +5,6 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:text="@string/titleButtonPage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        tools:text="Test App"
-        android:textSize="30sp"
-        android:textAlignment="center" />
-
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +38,7 @@
             android:onClick="checker"/>
 
         <TextView
-            android:text="@string/check"
+            android:text="@string/checkOff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/checkerText"
@@ -135,6 +126,15 @@
             android:layout_column="1"/>
 
     </GridLayout>
+
+    <TextView
+        android:text="@string/titleButtonPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        tools:text="Test App"
+        android:textSize="30sp"
+        android:textAlignment="center" />
 
     <SeekBar
         android:layout_width="match_parent"

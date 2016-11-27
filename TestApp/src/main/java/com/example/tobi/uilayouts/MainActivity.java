@@ -19,47 +19,39 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    public String[] spinnerEntries;
     int counter = 0;
     boolean checked = false;
+    RadioGroup radioGroup;
+    RadioButton checkedRadioButton;
+    boolean rbIsChecked;
+    Spinner progressBarSpinner;
+    String[] spinnerEntries;
+    TextView itemSelected;
     Button btnStartProgress;
     int currentProgress = 0;
-    private Handler handler = new Handler();
+    Handler progressHandler = new Handler();
     ProgressBar progressBar;
     TextView textSwitch;
-    TextView itemSelected;
-    View colourBox;
     SeekBar seekBar;
     Handler seekBarHandler = new Handler();
+    View colourBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        progressBar = (ProgressBar)findViewById(R.id.progressBar);
-        this.spinnerEntries = new String[]{"one", "two", "three"};
-        seekBar = (SeekBar)findViewById(R.id.seekBar);
-        Spinner s = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, spinnerEntries);
-        s.setAdapter(adapter);
-
-        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radio_group);
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
+        //RadioButtons Red, Green, Blue
+        radioGroup = (RadioGroup) findViewById(R.id.radio_group);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                RadioButton checkedRadioButton = (RadioButton)group.findViewById(checkedId);
+                checkedRadioButton = (RadioButton) group.findViewById(checkedId);
 
-                boolean isChecked = checkedRadioButton.isChecked();
-                if (isChecked)
-                {
+                rbIsChecked = checkedRadioButton.isChecked();
+                if (rbIsChecked) {
                     colourBox = findViewById(R.id.ColourBox);
-                    if(checkedRadioButton == findViewById(R.id.redRB))
-                    {
+                    if (checkedRadioButton == findViewById(R.id.redRB)) {
                         seekBarHandler.post(new Runnable() {
                             @Override
                             public void run() {
@@ -69,9 +61,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         });
-                    }
-                    else if(checkedRadioButton == findViewById(R.id.greenRB))
-                    {
+                    } else if (checkedRadioButton == findViewById(R.id.greenRB)) {
                         seekBarHandler.post(new Runnable() {
                             @Override
                             public void run() {
@@ -81,9 +71,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         });
-                    }
-                    else if(checkedRadioButton == findViewById(R.id.blueRB))
-                    {
+                    } else if (checkedRadioButton == findViewById(R.id.blueRB)) {
                         seekBarHandler.post(new Runnable() {
                             @Override
                             public void run() {
@@ -97,45 +85,58 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Spinner/Dropdown
+        itemSelected = (TextView) findViewById(R.id.selectedItem);
+        progressBarSpinner = (Spinner) findViewById(R.id.spinner);
+        progressBarSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                       int arg2, long arg3) {
+                itemSelected.setText(getString(R.string.selectedItem) + progressBarSpinner.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                itemSelected.setText("Nothing selected");
+            }
+        });
+
+        //ProgressBar
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        this.spinnerEntries = new String[]{"one", "two", "three"};
+        seekBar = (SeekBar) findViewById(R.id.seekBar);
+        progressBarSpinner = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerEntries);
+        progressBarSpinner.setAdapter(adapter);
+
         btnStartProgress = (Button) findViewById(R.id.progressButton);
         btnStartProgress.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                addListenerOnButton();
+                progressButtonListener();
             }
         });
-        Switch switcher = (Switch)findViewById(R.id.switch1);
+
+        //Switcher
+        Switch switcher = (Switch) findViewById(R.id.switch1);
         switcher.setChecked(true);
-        textSwitch = (TextView)findViewById(R.id.switchText);
+        textSwitch = (TextView) findViewById(R.id.switchText);
         switcher.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     textSwitch.setText(getString(R.string.switchOn));
-                }
-                else{
+                } else {
                     textSwitch.setText(getString(R.string.switchOff));
                 }
 
             }
         });
-        itemSelected = (TextView)findViewById(R.id.selectedItem);
-        final Spinner dropdown = (Spinner)findViewById(R.id.spinner);
-        dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-            @Override
-            public void onItemSelected(AdapterView<?> arg0, View arg1,
-                                       int arg2, long arg3) {
-                itemSelected.setText(getString(R.string.selectedItem) + dropdown.getSelectedItem().toString()) ;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-                // TODO Auto-generated method stub
-            }
-        });
-
+        //SeekBar changing colours
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progress = 0;
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int progressValue, boolean b) {
                 progress = progressValue;
@@ -156,25 +157,35 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void addListenerOnButton() {
+    //Checker
+    public void checker(View view) {
+        checked = !checked;
+        TextView myTextView = (TextView) findViewById(R.id.checkerText);
+        if (checked) {
+            myTextView.setText(R.string.checkOn);
+        } else {
+            myTextView.setText(R.string.checkOff);
+        }
+    }
 
-
+    //ProgressBar Listener
+    public void progressButtonListener() {
         new Thread(new Runnable() {
             public void run() {
-                while (currentProgress < 100){
+                while (currentProgress < 100) {
                     currentProgress += 1;
                     // Update the progress bar and display the
                     //current value in the text view
 
-                    handler.post(new Runnable() {
+                    progressHandler.post(new Runnable() {
                         public void run() {
                             progressBar.setProgress(currentProgress);
                         }
                     });
                     try {
-                        // Sleep for 200 milliseconds.
+                        // Sleep for 100 milliseconds.
                         //Just to display the progress slowly
-                        Thread.sleep(200);
+                        Thread.sleep(100);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -185,25 +196,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     //Counter
-    public void counter(View view)
-    {
+    public void counter(View view) {
         counter++;
-        TextView myTextView = (TextView)findViewById(R.id.counter);
+        TextView myTextView = (TextView) findViewById(R.id.counter);
         myTextView.setText(String.valueOf(counter));
-    }
-
-    //Checker
-    public void checker (View view)
-    {
-        checked = !checked;
-        TextView myTextView = (TextView)findViewById(R.id.checkerText);
-        if(checked)
-        {
-            myTextView.setText("Checked");
-        }
-        else
-        {
-            myTextView.setText("Unchecked");
-        }
     }
 }
