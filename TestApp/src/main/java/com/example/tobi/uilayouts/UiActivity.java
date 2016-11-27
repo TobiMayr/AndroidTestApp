@@ -17,7 +17,7 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class UiActivity extends AppCompatActivity {
 
     int counter = 0;
     boolean checked = false;
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_ui_layouts);
 
         //RadioButtons Red, Green, Blue
         radioGroup = (RadioGroup) findViewById(R.id.radio_group);
