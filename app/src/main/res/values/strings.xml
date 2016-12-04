@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">AndroidTestApp</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="titleButtonPage">UIControls</string>
+    <string name="counterButton">Counter</string>
+    <string name="zero">0</string>
+    <string name="checkBox">Check Box</string>
+    <string name="rbRed">Red</string>
+    <string name="rbGreen">Green</string>
+    <string name="rbBlue">Blue</string>
+    <string name="selectedItem">Selected item: </string>
+    <string name="makeProgress">Make Progress</string>
+    <string name="switchText">Switch</string>
+    <string name="switchOn">ON</string>
+    <string name="switchOff">OFF</string>
+    <string name="checkOn">Checked</string>
+    <string name="checkOff">Unchecked</string>
+    <string name="title_activity_main">MainActivity</string>
+
+</resources>
