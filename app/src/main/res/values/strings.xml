@@ -6,7 +6,7 @@
 
     <string name="action_settings">Settings</string>
 
-    <string name="titleButtonPage">UIControls</string>
+    <string name="UIControlsTitle">UIControls</string>
     <string name="counterButton">Counter</string>
     <string name="zero">0</string>
     <string name="checkBox">Check Box</string>
@@ -21,5 +21,7 @@
     <string name="checkOn">Checked</string>
     <string name="checkOff">Unchecked</string>
     <string name="title_activity_main">MainActivity</string>
+
+    <string name="ShowPicTitle">Show Picture</string>
 
 </resources>
