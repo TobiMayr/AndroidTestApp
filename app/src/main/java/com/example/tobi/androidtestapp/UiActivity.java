@@ -46,6 +46,7 @@ public class UiActivity extends Fragment {
 
         //RadioButtons Red, Green, Blue
         radioGroup = (RadioGroup) uiLayoutView.findViewById(R.id.radio_group);
+        colourBox = uiLayoutView.findViewById(R.id.ColourBox);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -53,7 +54,6 @@ public class UiActivity extends Fragment {
 
                 rbIsChecked = checkedRadioButton.isChecked();
                 if (rbIsChecked) {
-                    colourBox = uiLayoutView.findViewById(R.id.ColourBox);
                     if (checkedRadioButton == uiLayoutView.findViewById(R.id.redRB)) {
                         seekBarHandler.post(new Runnable() {
                             @Override
