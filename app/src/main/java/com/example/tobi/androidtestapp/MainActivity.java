@@ -92,6 +92,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_show_picture) {
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, new ShowPicture()).commit();
+        } else if (id == R.id.nav_scroll) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, new Scroll()).commit();
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="some_list">
+        <item>First Item</item>
+        <item>Second Item</item>
+        <item>Another Item</item>
+        <item>Some other Item</item>
+        <item>Something else</item>
+        <item>Yet another Item</item>
+        <item>One of many Items</item>
+        <item>Already out of Names</item>
+        <item>What to do now?</item>
+        <item>Pretend to add more meaningful Items</item>
+        <item>Some more..</item>
+        <item>That\'s fun</item>
+        <item>Well not really</item>
+        <item>But this List needs to contain quite some Items</item>
+        <item>With different lengths</item>
+        <item>Long and short words</item>
+        <item>Still lots of fun..</item>
+        <item>But well</item>
+        <item>What can I do</item>
+        <item>Almost done!!</item>
+        <item>Close!</item>
+        <item>That\'s it</item>
+        <item>Last Item</item>
+    </string-array>
+</resources>
