@@ -4,7 +4,6 @@ import android.app.Fragment;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -89,6 +88,8 @@ public class UiActivity extends Fragment {
         });
 
         //Spinner/Dropdown
+        String[] spinnerEntries = getResources().getStringArray(R.array.spinner_array);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, spinnerEntries);
         itemSelected = (TextView) uiLayoutView.findViewById(R.id.selectedItem);
         progressBarSpinner = (Spinner) uiLayoutView.findViewById(R.id.spinner);
         progressBarSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -96,23 +97,19 @@ public class UiActivity extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1,
                                        int arg2, long arg3) {
-                itemSelected.setText(getString(R.string.selectedItem) + progressBarSpinner.getSelectedItem().toString());
+                itemSelected.setText(getString(R.string.tvSelectedItem, progressBarSpinner.getSelectedItem().toString()));
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
-                itemSelected.setText("Nothing selected");
+                itemSelected.setText(R.string.tvNothingSelected);
             }
         });
 
         //ProgressBar
         progressBar = (ProgressBar) uiLayoutView.findViewById(R.id.progressBar);
-        this.spinnerEntries = new String[]{"one", "two", "three"};
-        seekBar = (SeekBar) uiLayoutView.findViewById(R.id.seekBar);
         progressBarSpinner = (Spinner) uiLayoutView.findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, spinnerEntries);
         progressBarSpinner.setAdapter(adapter);
-
         btnStartProgress = (Button) uiLayoutView.findViewById(R.id.progressButton);
         btnStartProgress.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -137,6 +134,7 @@ public class UiActivity extends Fragment {
         });
 
         //SeekBar changing colours
+        seekBar = (SeekBar) uiLayoutView.findViewById(R.id.seekBar);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progress = 0;
 

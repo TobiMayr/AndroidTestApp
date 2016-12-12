@@ -5,15 +5,15 @@
         <item
             android:id="@+id/nav_ui_layouts"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Ui Layouts" />
+            android:title="@string/uiControlsTitle"/>
         <item
             android:id="@+id/nav_show_picture"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Show Picture" />
+            android:title="@string/showPicTitle"/>
         <item
             android:id="@+id/nav_scroll"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Scroll List" />
+            android:title="@string/scrollTitle" />
     </group>
 
     <item android:title="Communicate">

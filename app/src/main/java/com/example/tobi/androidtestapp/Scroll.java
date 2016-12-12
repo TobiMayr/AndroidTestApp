@@ -21,7 +21,7 @@ public class Scroll extends android.app.Fragment{
         scrollActivityView = inflater.inflate(R.layout.activity_scroll, container, false);
 
         ScrollListTextView = (TextView) scrollActivityView.findViewById(R.id.tv_toy_names);
-        String[] randomItems = getResources().getStringArray(R.array.some_list);
+        String[] randomItems = getResources().getStringArray(R.array.scroll_list_array);
         for (String item : randomItems) {
             ScrollListTextView.append(item + "\n\n\n");
         }

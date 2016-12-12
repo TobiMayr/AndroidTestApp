@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="some_list">
+    <string-array name="scroll_list_array">
         <item>First Item</item>
         <item>Second Item</item>
         <item>Another Item</item>
@@ -24,5 +24,10 @@
         <item>Close!</item>
         <item>That\'s it</item>
         <item>Last Item</item>
+    </string-array>
+    <string-array name="spinner_array">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
     </string-array>
 </resources>

@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <TextView
-            android:text="@string/UIControlsTitle"
+            android:text="@string/uiControlsTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView"
@@ -23,7 +23,7 @@
             android:columnCount="3">
 
             <Button
-                android:text="@string/counterButton"
+                android:text="@string/btnCounter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/counterButton"
@@ -41,7 +41,7 @@
                 android:textAlignment="viewStart" />
 
             <CheckBox
-                android:text="@string/checkBox"
+                android:text="@string/chkCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/checkBox2"
@@ -97,7 +97,7 @@
                 android:layout_column="0"/>
 
             <TextView
-                android:text="@string/selectedItem"
+                android:text="@string/tvSelectedItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/selectedItem"
@@ -105,7 +105,7 @@
                 android:layout_column="1"/>
 
             <Button
-                android:text="@string/makeProgress"
+                android:text="@string/btnMakeProgress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/progressButton"
@@ -121,7 +121,7 @@
                 android:layout_column="1"/>
 
             <Switch
-                android:text="@string/switchText"
+                android:text="@string/swSwitchText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/switch1"
