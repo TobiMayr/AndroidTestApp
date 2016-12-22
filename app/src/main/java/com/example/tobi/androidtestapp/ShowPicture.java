@@ -33,7 +33,7 @@ public class ShowPicture extends android.app.Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        showPictureView = inflater.inflate(activity_show_picture, container, false);
+        showPictureView = inflater.inflate(R.layout.activity_show_picture, container, false);
 
         imageDetail = (ImageView) showPictureView.findViewById(R.id.imViewAvo);
         imageDetail.setScaleType(ImageView.ScaleType.MATRIX);
@@ -44,6 +44,7 @@ public class ShowPicture extends android.app.Fragment {
             public boolean onTouch(View v, MotionEvent event) {
 
                 ImageView view = (ImageView) v;
+                System.out.println("matrix=" + savedMatrix.toString());
                 switch (event.getAction() & MotionEvent.ACTION_MASK) {
                     case MotionEvent.ACTION_DOWN:
 
@@ -53,6 +54,25 @@ public class ShowPicture extends android.app.Fragment {
                         break;
 
                     case MotionEvent.ACTION_POINTER_DOWN:
+                        /*
+                        float newDist = spacing(event);
+                        if (newDist > 10f) {
+                            matrix.set(savedMatrix);
+                            float scale = newDist / oldDist;
+
+                            Matrix temp = new Matrix();
+                            temp.set(matrix);
+                            temp.postScale(scale, scale, midPoint.x, midPoint.y);
+                            float mapZoom = getValue(temp, Matrix.MSCALE_X);
+                            if (mapZoom < MAX_ZOOM && mapZoom > MIN_ZOOM) {
+                                matrix.postScale(zoomScale, zoomScale, mid.x, mid.y);
+                                savedMatrixZoom.set(matrix);
+                            } else {
+                                matrix.set(savedMatrixZoom);
+                            }
+                        }
+                        */
+
 
                         oldDist = spacing(event);
 
@@ -74,12 +94,23 @@ public class ShowPicture extends android.app.Fragment {
                             matrix.set(savedMatrix);
                             matrix.postTranslate(event.getX() - startPoint.x, event.getY() - startPoint.y);
                         } else if (mode == ZOOM) {
-                            float newDist = spacing(event);
+                            float[] f = new float[9];
 
+                            float newDist = spacing(event);
                             if (newDist > 10f) {
                                 matrix.set(savedMatrix);
-                                float scale = newDist / oldDist;
-                                matrix.postScale(scale, scale, midPoint.x, midPoint.y);
+                                float tScale = newDist / oldDist;
+                                matrix.postScale(tScale, tScale, midPoint.x, midPoint.y);
+                            }
+
+                            matrix.getValues(f);
+                            float scaleX = f[Matrix.MSCALE_X];
+                            float scaleY = f[Matrix.MSCALE_Y];
+
+                            if(scaleX <= 0.7f) {
+                                matrix.postScale((0.7f)/scaleX, (0.7f)/scaleY, midPoint.x, midPoint.y);
+                            } else if(scaleX >= 3.5f) {
+                                matrix.postScale((3.5f)/scaleX, (3.5f)/scaleY, midPoint.x, midPoint.y);
                             }
                         }
                         break;
