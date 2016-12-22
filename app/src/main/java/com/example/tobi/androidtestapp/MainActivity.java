@@ -1,9 +1,6 @@
 package com.example.tobi.androidtestapp;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -24,7 +21,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.fragment_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         /*
@@ -70,9 +67,12 @@ public class MainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        android.app.FragmentManager fragmentManager = getFragmentManager();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, new SettingsFragment()).commit();
             return true;
         }
 

@@ -18,7 +18,7 @@ public class Scroll extends android.app.Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        scrollActivityView = inflater.inflate(R.layout.activity_scroll, container, false);
+        scrollActivityView = inflater.inflate(R.layout.fragment_scroll, container, false);
 
         ScrollListTextView = (TextView) scrollActivityView.findViewById(R.id.tv_toy_names);
         String[] randomItems = getResources().getStringArray(R.array.scroll_list_array);

@@ -41,7 +41,7 @@ public class UiActivity extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        uiLayoutView = inflater.inflate(R.layout.activity_ui_layouts, container, false);
+        uiLayoutView = inflater.inflate(R.layout.fragment_ui_layouts, container, false);
 
         //RadioButtons Red, Green, Blue
         radioGroup = (RadioGroup) uiLayoutView.findViewById(R.id.radio_group);

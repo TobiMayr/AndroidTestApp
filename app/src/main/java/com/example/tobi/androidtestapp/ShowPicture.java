@@ -4,17 +4,12 @@ import android.annotation.SuppressLint;
 import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.FloatMath;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
-import static com.example.tobi.androidtestapp.R.layout.activity_show_picture;
 
 public class ShowPicture extends android.app.Fragment {
 
@@ -33,7 +28,7 @@ public class ShowPicture extends android.app.Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        showPictureView = inflater.inflate(R.layout.activity_show_picture, container, false);
+        showPictureView = inflater.inflate(R.layout.fragment_show_picture, container, false);
 
         imageDetail = (ImageView) showPictureView.findViewById(R.id.imViewAvo);
         imageDetail.setScaleType(ImageView.ScaleType.MATRIX);
@@ -44,7 +39,6 @@ public class ShowPicture extends android.app.Fragment {
             public boolean onTouch(View v, MotionEvent event) {
 
                 ImageView view = (ImageView) v;
-                System.out.println("matrix=" + savedMatrix.toString());
                 switch (event.getAction() & MotionEvent.ACTION_MASK) {
                     case MotionEvent.ACTION_DOWN:
 
@@ -54,26 +48,6 @@ public class ShowPicture extends android.app.Fragment {
                         break;
 
                     case MotionEvent.ACTION_POINTER_DOWN:
-                        /*
-                        float newDist = spacing(event);
-                        if (newDist > 10f) {
-                            matrix.set(savedMatrix);
-                            float scale = newDist / oldDist;
-
-                            Matrix temp = new Matrix();
-                            temp.set(matrix);
-                            temp.postScale(scale, scale, midPoint.x, midPoint.y);
-                            float mapZoom = getValue(temp, Matrix.MSCALE_X);
-                            if (mapZoom < MAX_ZOOM && mapZoom > MIN_ZOOM) {
-                                matrix.postScale(zoomScale, zoomScale, mid.x, mid.y);
-                                savedMatrixZoom.set(matrix);
-                            } else {
-                                matrix.set(savedMatrixZoom);
-                            }
-                        }
-                        */
-
-
                         oldDist = spacing(event);
 
                         if (oldDist > 10f) {
